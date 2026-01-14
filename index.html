@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Website Under Maintenance</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+        :root {
+            --bg: #f4f6f8;
+            --card: #ffffff;
+            --text: #333;
+            --primary: #0f172a;
+        }
+
+        body.dark {
+            --bg: #0b1220;
+            --card: #111827;
+            --text: #e5e7eb;
+            --primary: #38bdf8;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header img {
+            max-width: 120px;
+        }
+
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        section {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+    
+
+
+        .about, .projects {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            height: 420px; /* BIGGER CARD */
+            background: var(--card);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: scale(1.04);
+        }
+
+        /* IMAGE AREA */
+        .project-card img {
+            width: 100%;
+            height: 260px;  /* CONTROL IMAGE HEIGHT */
+            object-fit: contain;
+            background: #000;       
+        }
+
+        /* TEXT AREA */
+        .project-card div {
+            padding: 18px;
+            flex-grow: 1;
+        }
+
+        .countdown {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .office {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+
+        .office h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .office p {
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 20px;
+            white-space: pre-line;
+        }
+
+        .office .address-icon {
+            font-size: 18px;
+            margin-right: 5px;
+        }
+
+        .office button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .office button:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .close {
+            margin-top: 15px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            opacity: 0.8;
+        }
+
+        </style>
+    </head>
+
+    <body>
+
+        <header>
+            <button class="toggle-btn" onclick="toggleTheme()">🌙</button>
+
+            <img src="images\logo.jpg" alt="Logo">
+            <h1>Vedic Jagritii Sanganm</h1>
+            <p>We are upgrading our website 🚧</p>
+            <div class="countdown" id="countdown"></div>
+        </header>
+
+        <section>
+            <div class="about">
+                <h2>About Us</h2>
+                <p>
+                    Vedic Jagritii Sangam (VJS) is a holistic civilizational revival initiative dedicated to re-establishing India’s Vedic heritage as a complete and practical way of life. We work to revive the Vedic Civilization Model, where spirituality, health, education, agriculture, medicine, and social ethics function as an integrated system.
+                    Our vision goes beyond rituals and symbolism. VJS focuses on building self-reliant Vedic villages, townships, and knowledge hubs that combine ancient Vedic wisdom with modern science to address contemporary challenges—health, sustainability, education, livelihoods, and ethical leadership.
+                    At the heart of VJS is a living Vedic campus centered around a grand temple complex, functioning not only as a place of worship but as a hub of sadhana, service, education, healthcare, cow protection, and cultural revival. Surrounding institutions include Gurukul-based education centers, Ayurvedic facilities, organic farming systems, gaushalas, and hospitals.
+                    Vedic Jagritii Sangam operates as a participatory movement, bringing together scholars, physicians, farmers, youth, women, and social leaders to co-create a values-based, compassionate, and sustainable society—rooted in Vedic principles and respectful of all traditions.
+                </p>
+            </div>
+            <div class="about">
+                <h2>Our Office</h2>
+
+                <p id="officeAddress">
+                    🏢Vedic Jagritii Sangam <br>
+                    B. B. COLLEGE ROAD, USHAGRAM<br>
+                    ASANSOL-3, PASCHIM BARDHAMAN<br>
+                    West Bengal, India
+                </p>
+
+                <button class="close" onclick="copyAddress()">
+                    Copy Address
+                </button>
+            </div>
+
+            <div class="projects">
+                <h2>Upcoming Projects</h2>
+
+                <div class="projects-grid">
+                    <div class="project-card" onclick="openModal('Project One','Vaidik Banprastha Ashram')">
+                        <img src="images/WhatsApp Image 2026-01-14 at 17.28.14.jpeg">
+                        <div>
+                            <h3>Project One</h3>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="openModal('Project Two','Landscape outline of the Proposed Project of Anondomoyee Group')">
+                        <img src="images/WhatsApp Image 2026-01-14 at 17.28.15.jpeg">
+                        <div>
+                            <h3>Project Two</h3>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="openModal('Project Three','Anondomoyee Group')">
+                        <img src="images/WhatsApp Image 2026-01-14 at 17.28.16.jpeg">
+                        <div>
+                            <h3>Project Three</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            © 2026 Vedic Jagritii Sanganm
+        </footer>
+
+        <!-- Modal -->
+            <div class="modal" id="modal">
+                <div class="modal-content">
+                    <h3 id="modalTitle"></h3>
+                    <p id="modalDesc"></p>
+                    <button class="close" onclick="closeModal()">Close</button>
+                </div>
+            </div>
+
+            <script>
+            /* Countdown Timer */
+                const launchDate = new Date("2026-03-15").getTime();
+
+                setInterval(() => {
+                    const now = new Date().getTime();
+                    const diff = launchDate - now;
+
+                    if (diff <= 0) {
+                        document.getElementById("countdown").innerText = "We are live!";
+                        return;
+                    }
+
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                    const mins = Math.floor((diff / (1000 * 60)) % 60);
+
+                    document.getElementById("countdown").innerText =
+                        `Launching in ${days}d ${hours}h ${mins}m`;
+                }, 1000);
+
+                /* Modal */
+                function openModal(title, desc) {
+                    document.getElementById("modalTitle").innerText = title;
+                    document.getElementById("modalDesc").innerText = desc;
+                    document.getElementById("modal").style.display = "flex";
+                }
+
+                function closeModal() {
+                    document.getElementById("modal").style.display = "none";
+                }
+
+                /* Dark Mode */
+                function toggleTheme() {
+                    document.body.classList.toggle("dark");
+                }
+                function copyAddress() {
+                    const address = document.getElementById("officeAddress").innerText;
+                    navigator.clipboard.writeText(address);
+                    alert("Office address copied!");
+                }
+
+            </script>
+
+    </body>
+</html>
