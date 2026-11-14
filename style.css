@@ -294,6 +294,13 @@
         position: relative;
         z-index: 1;
       }
+      .collage .ph > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: relative;
+        z-index: 1;
+      }
       .ph.gold {
         --c1: var(--gold);
         --c2: var(--gold-dark);
@@ -395,6 +402,18 @@
         width: 55%;
         height: 80%;
         object-fit: contain;
+      }
+      #about .ph {
+        background: #fff;
+      }
+      #about .ph::after {
+        border-color: rgba(91, 18, 32, 0.18);
+      }
+      #about .two h2 {
+        color: #fff;
+      }
+      #about .two p {
+        color: #f3e7d9;
       }
       .two h2 {
         font-size: clamp(1.7rem, 3.4vw, 2.3rem);
